@@ -111,4 +111,9 @@ public abstract class Ouvrage {
                 ", genre='" + genre + '\'' +
                 '}';
     }
+
+    public void addAuteur(Auteur a){
+        lauteurs.add(a);
+        a.getLouvrage().add(this);
+    }
 }

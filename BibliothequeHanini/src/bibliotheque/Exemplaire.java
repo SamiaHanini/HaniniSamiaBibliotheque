@@ -86,4 +86,9 @@ public class Exemplaire {
                 ", rayon=" + rayon +
                 '}';
     }
+
+    public void addLoca(Location l){
+        lloc.add(l);
+        l.setExemplaire(this);
+    }
 }

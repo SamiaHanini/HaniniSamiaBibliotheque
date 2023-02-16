@@ -114,4 +114,9 @@ public class Lecteur {
     public int hashCode() {
         return Objects.hash(numlecteur);
     }
+
+    public void addLoc(Location l){
+        lloc.add(l);
+        l.setLoueur(this);
+    }
 }
