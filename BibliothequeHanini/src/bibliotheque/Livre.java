@@ -72,4 +72,7 @@ public class Livre extends Ouvrage{
                 ", resume='" + resume + '\'' +
                 "} " + super.toString();
     }
+
+    //TODO
+    public double amendeRetard(int njours){}
 }

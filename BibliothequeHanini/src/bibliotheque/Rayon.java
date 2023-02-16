@@ -66,4 +66,9 @@ public class Rayon {
 
     }
 
+    //TODO lister exemplaires
+    public void listerExemplaires(){
+
+    }
+
 }

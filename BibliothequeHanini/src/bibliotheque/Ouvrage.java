@@ -116,4 +116,17 @@ public abstract class Ouvrage {
         lauteurs.add(a);
         a.getLouvrage().add(this);
     }
+
+    //TODO lister exemplaires
+    public void listerExemplaires(){
+
+    }
+
+    //TODO lister exemplaires + param
+    public void listerExemplaires(boolean enLocation){
+
+    }
+
+    //TODO amende retard
+    public abstract double amendeRetard(int nbjours);
 }

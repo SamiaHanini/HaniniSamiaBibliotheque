@@ -91,4 +91,32 @@ public class Exemplaire {
         lloc.add(l);
         l.setExemplaire(this);
     }
+
+    //TODO
+    public void modifierEtat(String etat){}
+
+    //TODO
+    public void lecteurActuel(){}
+
+    //TODO
+    public void lecteurs(){
+
+    }
+
+    //TODO
+    public void envoiMailLecteurActuel(Mail mail){}
+
+    //TODO
+    public void envoiMailLecteurs(Mail mail){}
+
+    //TODO
+    public boolean enRetard(){}
+
+    //TODO
+    public int joursRetards(){
+    }
+
+    //todo
+    public boolean enLocation(){}
+
 }

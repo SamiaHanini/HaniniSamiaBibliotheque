@@ -119,4 +119,10 @@ public class Lecteur {
         lloc.add(l);
         l.setLoueur(this);
     }
+
+    //todo
+    public void listerExemplairesEnLocation();
+
+    //todo
+    public void listerExemplairesLoues();
 }

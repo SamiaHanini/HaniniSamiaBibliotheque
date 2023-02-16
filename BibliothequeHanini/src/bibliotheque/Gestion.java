@@ -1,6 +1,7 @@
 package bibliotheque;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Gestion {
     public static void main(String[] args) {
@@ -82,6 +83,39 @@ public class Gestion {
     public static void main(String[] args) {
 
         populate();
+        Scanner sc = new Scanner(Sytesm.in);
+        int choix;
+        do{
+            System.out.println("1. Auteur \n2. Ouvrage \n3. \n4. \n5. \n6. \n7. \n8. Fin");
+            choix = sc.nextInt();
+            switch(choix) {
+                case 1: gestAuteur();
+                        break;
+                case 2: gestOuvrage();
+                        break;
+
+                case 3: gestLecteur();
+                        break;
+
+                case 4 : gestRayon();
+                        break;
+
+                case 5 : gestExemplaire();
+                        break;
+
+                case 6 : gestLouer();
+                        break;
+
+                case 7 : gestRendre();
+                    break;
+
+                case 8 : System.out.println("\nAu revoir !");
+                        break;
+            }
+
+        }while(choix!=8);
+
+
 
     }
 
