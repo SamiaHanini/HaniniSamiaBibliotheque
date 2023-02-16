@@ -76,4 +76,15 @@ public class Auteur {
         o.getLauteurs().add(this);
 
     }
+
+    //todo
+    public void listerOuvrages(){}
+
+
+    //todo
+    public void listerOuvrages(typeOuvrage, typeLivre){}
+
+    //todo
+    public void listerOuvrages(Genre genre){}
+
 }
