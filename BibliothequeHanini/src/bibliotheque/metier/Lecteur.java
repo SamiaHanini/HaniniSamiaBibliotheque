@@ -1,4 +1,4 @@
-package bibliotheque;
+package bibliotheque.metier;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -14,6 +14,9 @@ public class Lecteur {
     private String tel;
 
     private List<Location> lloc=new ArrayList<>();
+
+    public Lecteur() {
+    }
 
     public Lecteur(int numlecteur, String nom, String prenom, LocalDate dn, String adresse, String mail, String tel) {
         this.numlecteur = numlecteur;
@@ -115,14 +118,13 @@ public class Lecteur {
         return Objects.hash(numlecteur);
     }
 
-    public void addLoc(Location l){
-        lloc.add(l);
-        l.setLoueur(this);
+    public List<bibliotheque.metier.Exemplaire> listerExemplairesEnLocation(){
+        //TODO lister exemplaires en location lecteur
+        return null;
     }
 
-    //todo
-    public void listerExemplairesEnLocation();
-
-    //todo
-    public void listerExemplairesLoues();
+    public List<bibliotheque.metier.Exemplaire> listerExemplairesEnLoues(){
+        //TODO lister exemplaires loues lecteur
+        return null;
+    }
 }

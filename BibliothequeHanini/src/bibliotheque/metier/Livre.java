@@ -1,4 +1,4 @@
-package bibliotheque;
+package bibliotheque.metier;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -64,6 +64,12 @@ public class Livre extends Ouvrage{
     }
 
     @Override
+    public double amendeRetard(int njours) {
+        //TODO amendeRetard livre 15 jours
+        return 0;
+    }
+
+    @Override
     public String toString() {
         return super.toString()+ "Livre{" +
                 "isbn='" + isbn + '\'' +
@@ -72,7 +78,4 @@ public class Livre extends Ouvrage{
                 ", resume='" + resume + '\'' +
                 "} " + super.toString();
     }
-
-    //TODO
-    public double amendeRetard(int njours){}
 }

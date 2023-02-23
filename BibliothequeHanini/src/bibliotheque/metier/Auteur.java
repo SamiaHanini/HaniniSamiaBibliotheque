@@ -1,6 +1,5 @@
-package bibliotheque;
+package bibliotheque.metier;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -48,6 +47,8 @@ public class Auteur {
         this.louvrage = louvrage;
     }
 
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -70,21 +71,55 @@ public class Auteur {
                 '}';
     }
 
-    public void addOuvrage(Ouvrage o){
-
+    public void addOuvrage(Ouvrage o ){
         louvrage.add(o);
         o.getLauteurs().add(this);
-
     }
 
-    //todo
-    public void listerOuvrages(){}
+    public void remove(Ouvrage o){
+        louvrage.remove(o);
+        o.getLauteurs().remove(this);
+    }
 
+    public List<Ouvrage> listerOuvrages(){
+        List<Ouvrage> louv = new ArrayList<>();
+        for (Ouvrage ouvrage : louvrage) {
+                louv.add(ouvrage);
+        }
+        return louv;
+    }
 
-    //todo
-    public void listerOuvrages(typeOuvrage, typeLivre){}
+    public List<Ouvrage> listerOuvrages(TypeOuvrage to){
+        List<Ouvrage> louv = new ArrayList<>();
+        for (Ouvrage ouvrage : louvrage) {
+            if(ouvrage.getTo().toString().equals(to.toString())){
+                louv.add(ouvrage);
 
-    //todo
-    public void listerOuvrages(Genre genre){}
+            }
+        }
+        return louv;
+    }
+    public List<Livre> listerLivres(TypeLivre tl){
+        //TODO lister livres d'un type
+        //probleme retourner liste livre à retravailler
+        List<Ouvrage> louv = new ArrayList<>();
+        List<Livre> liv = new ArrayList<>();
+        for (Ouvrage ouvrage : louvrage) {
+            if(ouvrage.getTo().toString().equals(tl.toString())){
+                 liv.add(ouvrage);
+            }
+        }
+        List<Livre> liv = new ArrayList<>();
 
+        return liv;
+    }
+    public List<Ouvrage> listerOuvrages(String genre){
+        List<Ouvrage> louv = new ArrayList<>();
+        for (Ouvrage ouvrage : louvrage) {
+            if(ouvrage.getGenre().equals(genre)){
+                louv.add(ouvrage);
+            }
+        }
+        return louv;
+    }
 }

@@ -1,4 +1,4 @@
-package bibliotheque;
+package bibliotheque.metier;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -13,8 +13,8 @@ public abstract class Ouvrage {
     protected String langue;
     protected String genre;
 
-    protected List<Auteur> lauteurs=new ArrayList<>();
-    protected List<Exemplaire> lex = new ArrayList<>();
+    protected List<bibliotheque.metier.Auteur> lauteurs=new ArrayList<>();
+    protected List<bibliotheque.metier.Exemplaire> lex = new ArrayList<>();
 
 
     public Ouvrage(String titre, int ageMin, LocalDate dateParution, TypeOuvrage to, double prixLocation, String langue, String genre) {
@@ -26,6 +26,8 @@ public abstract class Ouvrage {
         this.langue = langue;
         this.genre = genre;
     }
+
+
 
     public String getTitre() {
         return titre;
@@ -83,22 +85,24 @@ public abstract class Ouvrage {
         this.genre = genre;
     }
 
-    public List<Auteur> getLauteurs() {
+    public List<bibliotheque.metier.Auteur> getLauteurs() {
         return lauteurs;
     }
 
-    public void setLauteurs(List<Auteur> lauteurs) {
+    public void setLauteurs(List<bibliotheque.metier.Auteur> lauteurs) {
         this.lauteurs = lauteurs;
     }
 
-    public List<Exemplaire> getLex() {
+    public List<bibliotheque.metier.Exemplaire> getLex() {
         return lex;
     }
 
-    public void setLex(List<Exemplaire> lex) {
+    public void setLex(List<bibliotheque.metier.Exemplaire> lex) {
         this.lex = lex;
     }
 
+
+    public abstract double amendeRetard(int njours);
     @Override
     public String toString() {
         return "Ouvrage{" +
@@ -111,22 +115,32 @@ public abstract class Ouvrage {
                 ", genre='" + genre + '\'' +
                 '}';
     }
-
-    public void addAuteur(Auteur a){
+    public void addAuteur(bibliotheque.metier.Auteur a ){
         lauteurs.add(a);
         a.getLouvrage().add(this);
     }
 
-    //TODO lister exemplaires
-    public void listerExemplaires(){
-
+    public void remove(bibliotheque.metier.Auteur a){
+        lauteurs.remove(a);
+        a.getLouvrage().remove(this);
+    }
+    public void addExemplaire(bibliotheque.metier.Exemplaire e){
+        lex.add(e);
+        e.setOuvrage(this);
     }
 
-    //TODO lister exemplaires + param
-    public void listerExemplaires(boolean enLocation){
-
+    public void remove(bibliotheque.metier.Exemplaire e){
+        lex.remove(e);
+        e.setOuvrage(null);
+    }
+    public List<bibliotheque.metier.Exemplaire>listerExemplaires(){
+        //TODO lister exemplaires ouvrage
+        return lex;
     }
 
-    //TODO amende retard
-    public abstract double amendeRetard(int nbjours);
+    public List<bibliotheque.metier.Exemplaire>listerExemplaires(boolean enLocation){
+        //TODO lister exemplaires ouvrage en location ou non
+        //condition if dans boucle false or true
+        return null;
+    }
 }

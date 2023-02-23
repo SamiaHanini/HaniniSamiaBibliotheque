@@ -1,8 +1,10 @@
-package bibliotheque;
+package bibliotheque.metier;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.time.LocalDateTime;
 
 public class Exemplaire {
 
@@ -51,12 +53,14 @@ public class Exemplaire {
         this.descriptionEtat = descriptionEtat;
     }
 
-     public Ouvrage getOuvrage() {
+    public Ouvrage getOuvrage() {
         return ouvrage;
     }
 
     public void setOuvrage(Ouvrage ouvrage) {
+        if(this.ouvrage!=null) this.ouvrage.getLex().remove(this);
         this.ouvrage = ouvrage;
+        this.ouvrage.getLex().add(this);
     }
 
     public Rayon getRayon() {
@@ -87,36 +91,79 @@ public class Exemplaire {
                 '}';
     }
 
-    public void addLoca(Location l){
-        lloc.add(l);
-        l.setExemplaire(this);
+
+    public void modifierEtat(String etat){
+        this.setDescriptionEtat(etat);
     }
 
-    //TODO
-    public void modifierEtat(String etat){}
+    public Lecteur lecteurActuel(){
 
-    //TODO
-    public void lecteurActuel(){}
+        List<Location> loca = new ArrayList<>();
+        //dernière location de la liste qui n'a pas été restituté
+        for(Location loc : lloc){
 
-    //TODO
-    public void lecteurs(){
+            if(loc.getDateRestitution().isBefore(LocalDate.now())){
+
+                loca.add(loc);
+            }
+        }
+        int last = loca.size();
+        Lecteur lect = new Lecteur();
+        Location locat = new Location();
+        locat = loca.get(last-1);
+        lect = locat.getLoueur();
+        return lect;
+    }
+
+    public List<Lecteur> lecteurs(){
+        List<Lecteur> lec = new ArrayList<>();
+        for(Location loc : lloc){
+           lec.add(loc.getLoueur());
+        }
+        return lec;
+    }
+
+    public void envoiMailLecteurActuel(Mail mail){
+        //TODO envoi mail lecteur exemplaire
+        //println du contenu du mail
+        List<Location> loca = new ArrayList<>();
+        //dernière location de la liste qui n'a pas été restituté
+        for(Location loc : lloc){
+
+            if(loc.getDateRestitution().isBefore(LocalDate.now())){
+
+                loca.add(loc);
+            }
+        }
+        int last = loca.size();
+        Lecteur lect = new Lecteur();
+        Location locat = new Location();
+        locat = loca.get(last-1);
+        lect = locat.getLoueur();
+        return lect;
+    }
+    public void envoiMailLecteurs(Mail mail){
+        //TODO envoi mail lecteurs exemplaire
+        //println du contenu du mail
 
     }
 
-    //TODO
-    public void envoiMailLecteurActuel(Mail mail){}
-
-    //TODO
-    public void envoiMailLecteurs(Mail mail){}
-
-    //TODO
-    public boolean enRetard(){}
-
-    //TODO
-    public int joursRetards(){
+    public boolean enRetard(){
+        //TODO enretard exeplaire
+        return false;
     }
 
-    //todo
-    public boolean enLocation(){}
+    public int joursRetard(){
+        //TODO jours retard exemplaire
+        return 0;
+    }
+
+
+    public boolean enLocation(){
+        //TODO en location exemplaires
+        return false;
+    }
+
+
 
 }
