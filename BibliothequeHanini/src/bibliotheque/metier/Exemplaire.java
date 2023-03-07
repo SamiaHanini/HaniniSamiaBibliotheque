@@ -1,5 +1,8 @@
 package bibliotheque.metier;
-
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -143,25 +146,33 @@ public class Exemplaire {
         return lect;
     }
     public void envoiMailLecteurs(Mail mail){
-        //TODO envoi mail lecteurs exemplaire
-        //println du contenu du mail
+       l
+        System.out.println(mail.toString());
 
     }
 
     public boolean enRetard(){
-        //TODO enretard exeplaire
+        Location l = new Location();
+        if(l.getDateRestitution())
         return false;
     }
 
     public int joursRetard(){
-        //TODO jours retard exemplaire
-        return 0;
+        Location l = new Location();
+        int daysBetween = (int)ChronoUnit.DAYS.between(l.getDateRestitution(), l.getDateLocation());
+        return daysBetween;
     }
 
 
     public boolean enLocation(){
-        //TODO en location exemplaires
-        return false;
+        boolean isLocation= false;
+
+        for(Location l : lloc){
+            if(l.getLoueur() != null){
+                isLocation = true;
+            }
+        }
+        return isLocation;
     }
 
 

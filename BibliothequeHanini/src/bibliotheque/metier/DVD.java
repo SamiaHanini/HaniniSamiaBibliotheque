@@ -74,9 +74,14 @@ public class DVD extends Ouvrage{
     @Override
     public double amendeRetard(int njours) {
         //TODO amendeRetard DVD
-        //15 jours pr lesl livres
+        //15 jours pr les livres mais cb montant amende ?
+        double amende = 0;
+        if(njours > 3){
+
+            amende = calculerAmende();
+        }
         //
-        return 0;
+        return amende;
     }
     @Override
     public String toString() {

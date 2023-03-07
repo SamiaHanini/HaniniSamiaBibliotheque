@@ -54,7 +54,16 @@ public class CD extends Ouvrage{
     @Override
     public double amendeRetard(int njours) {
         //TODD amende Retard CD
+        double amende = ;
 
+        //je ne connais pas le calcul du  montant de l'amende en fct njours
+
+        if(njours > 7){
+
+            amende = calculerAmende();
+        }
+        //
+        return amende;
         return 0;
     }
     @Override

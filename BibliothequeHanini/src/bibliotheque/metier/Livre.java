@@ -65,8 +65,13 @@ public class Livre extends Ouvrage{
 
     @Override
     public double amendeRetard(int njours) {
-        //TODO amendeRetard livre 15 jours
-        return 0;
+        //TODO amendeRetard livre 15 jour
+        double amende = 0;
+        if(njours > 15){
+
+            amende = calculerAmende();
+        }
+        return amende;
     }
 
     @Override

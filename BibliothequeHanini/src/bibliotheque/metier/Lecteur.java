@@ -118,11 +118,13 @@ public class Lecteur {
         return Objects.hash(numlecteur);
     }
 
+    //pas compris :( Livre loué par un certain lecteur ?
     public List<bibliotheque.metier.Exemplaire> listerExemplairesEnLocation(){
         //TODO lister exemplaires en location lecteur
         return null;
     }
 
+    //pas compris :(
     public List<bibliotheque.metier.Exemplaire> listerExemplairesEnLoues(){
         //TODO lister exemplaires loues lecteur
         return null;
